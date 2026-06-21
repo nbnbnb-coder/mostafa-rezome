@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مصطفی میم مستر</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    body {
+      background-color: #0a0c14; /* تیره ملایم */
+      color: #e0e0e0; /* سفید مایل به کرم */
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1150px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .hero {
+      background: rgba(10, 12, 20, 0.88); /* کمی شفافیت */
+      border: 1px solid rgba(80, 100, 120, 0.2); /* حاشیه ظریف */
+      border-radius: 25px;
+      backdrop-filter: blur(15px);
+      padding: 40px 30px;
+      box-shadow: 0 0 25px rgba(20, 30, 40, 0.15);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1.5s ease-out both;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        flex-direction: row;
+        text-align: right;
+        justify-content: center;
+        padding: 50px 40px;
+      }
+    }
+
+    .profile-pic-container {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00b0ff, #7c4dff); /* آبی و بنفش مینیمال */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+      box-shadow: 0 0 25px rgba(0, 176, 255, 0.3);
+      animation: pulseGlow 8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.85; }
+    }
+
+    .profile-pic {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    @media (min-width: 900px) {
+      .hero { gap: 35px; }
+      .profile-pic-container { margin-bottom: 0; margin-left: 25px; }
+      .hero-text { text-align: right; flex-grow: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .name {
+      font-size: 3.2rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, #00b0ff, #a18cd1); /* آبی و بنفش */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+      animation: pulseText 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseText {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(0,176,255,.6)); }
+      50% { filter: drop-shadow(0 0 18px rgba(124,77,255,.8)); }
+    }
+
+    .subtitle {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: #c0c8d0; /* کرم روشن */
+      line-height: 2.1;
+      opacity: 0.95;
+    }
+
+    .contact-box {
+      margin: 20px auto 0;
+      display: inline-block;
+      background: rgba(80, 100, 120, 0.25);
+      border: 1px solid rgba(80, 100, 120, 0.35);
+      border-radius: 18px;
+      padding: 12px 22px;
+      color: #d0d8e0;
+      box-shadow: 0 0 18px rgba(20, 30, 40, 0.18);
+      font-weight: 600;
+      font-size: 1.02rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-box:hover {
+      transform: translateY(-3px) scale(1.02);
+      background: rgba(0, 176, 255, 0.15);
+      border-color: rgba(0, 176, 255, 0.3);
+      box-shadow: 0 0 22px rgba(0, 176, 255, 0.25);
+      color: #fff;
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(10, 12, 20, 0.85);
+      border: 1px solid rgba(80, 100, 120, 0.15);
+      border-radius: 25px;
+      padding: 30px 25px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 0 25px rgba(20, 30, 40, 0.25);
+      animation: fadeInUp 1.6s ease-out both;
+      text-align: center;
+    }
+
+    .card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: #00b0ff; /* رنگ تاکیدی آبی */
+      font-weight: 800;
+      text-shadow: 0 0 10px rgba(0, 176, 255, 0.25);
+    }
+
+    .skill {
+      margin-bottom: 18px;
+    }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      color: #d0d8e0;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .bar {
+      width: 100%;
+      height: 16px;
+      background: rgba(80, 100, 120, 0.2);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(80, 100, 120, 0.25);
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #00b0ff, #a18cd1); /* آبی و بنفش */
+      box-shadow: 0 0 15px rgba(0, 176, 255, 0.45);
+      width: 0;
+      animation: loadBar 2.8s ease-out forwards;
+    }
+
+    @keyframes loadBar {
+      from { width: 0; }
+      to { width: var(--w); }
+    }
+
+    .portfolio-section {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .portfolio-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .portfolio-item {
+      background: linear-gradient(135deg, rgba(0,176,255,0.1), rgba(124,77,255,0.1));
+      border: 1px solid rgba(80, 100, 120, 0.25);
+      border-radius: 20px;
+      padding: 18px 14px;
+      min-height: 90px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+      box-shadow: 0 0 15px rgba(20, 30, 40, 0.18);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 20px rgba(124,77,255,0.3);
+      border-color: rgba(0, 176, 255, 0.35);
+    }
+
+    .portfolio-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #ffffff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .status {
+      color: #00b0ff;
+      font-size: 0.88rem;
+      margin-top: 6px;
+      position: relative;
+      z-index: 1;
+      font-weight: 600;
+    }
+
+    /* لینک ها */
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #a0a8b0;
+      font-size: 0.95rem;
+      opacity: 0.9;
+      padding-bottom: 15px;
+    }
+
+    @media (max-width: 900px) {
+      .sections,
+      .portfolio-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-pic-container {
+        margin-bottom: 30px;
+        margin-left: 0;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .name {
+        font-size: 2.6rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+      
+      .contact-box {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="hero">
+      <div class="profile-pic-container">
+        <img src="C:\Users\Safarzadeh\Desktop\mostafa %100\رضومه\New folder\IMG_20260620_105602.jpg" alt="jglllll" class="profile-pic">
+      </div>
+      <div class="hero-text">
+        <h1 class="name">مصطفی میم مستر</h1>
+        <p class="subtitle">
+        1404میم مستر؛علاقه مند به برنامه نویسی و بیزینس.وی در سال1404علاقه خود را به کامپیوتر پیدا کرد و در همان سال به یاد گرفتن نرم افزار های گرافیکی آموخت.در اواخر سال به برنامه نویسی علاقه مند شد و به بادگیری پایتون شتافت. 
+        </p>
+        <a href="https://pn-src.ir" target="_blank" class="contact-box">
+          سایت پایانوین: pn-src.ir
+        </a>
+      </div>
+    </div>
+
+    <div class="sections">
+      <div class="card">
+        <h2>مهارت‌های فنی</h2>
+
+        <div class="skill">
+          <div class="skill-top"><span>پایتون</span><span>66%</span></div>
+          <div class="bar"><div class="fill" style="--w:66%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top"><span>ساخت و ویرایش PDF</span><span>66%</span></div>
+          <div class="bar"><div class="fill" style="--w:66%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top"><span>فوتوشاپ</span><span>88%</span></div>
+          <div class="bar"><div class="fill" style="--w:88%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top"><span>پریمیر پرو</span><span>55%</span></div>
+          <div class="bar"><div class="fill" style="--w:55%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top"><span>طراحی لوگو</span><span>88%</span></div>
+          <div class="bar"><div class="fill" style="--w:88%"></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>مهارت‌های خلاقانه</h2>
+
+        <div class="skill">
+          <div class="skill-top"><span>ساخت اپلیکیشن ویندوزی</span><span>63%</span></div>
+          <div class="bar"><div class="fill" style="--w:63%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top"><span>ساخت فایل پاورپوینت</span><span>96%</span></div>
+          <div class="bar"><div class="fill" style="--w:96%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top"><span>ساخت بازی با گودوت انجین</span><span>39%</span></div>
+          <div class="bar"><div class="fill" style="--w:39%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top"><span>ایده‌پردازی</span><span>99%</span></div>
+          <div class="bar"><div class="fill" style="--w:99%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top"><span>ادمین و ساخت محتوا</span><span>76%</span></div>
+          <div class="bar"><div class="fill" style="--w:76%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card portfolio-section">
+      <h2>پروژه ها</h2>
+      <div class="portfolio-list">
+        <div class="portfolio-item">
+          <div class="portfolio-title">1. اپ نیکو</div>
+          <div class="status">بزودی</div>
+        </div>
+        <div class="portfolio-item">
+          <div class="portfolio-title">2. مدیریت پایانوین</div>
+          <div class="status">
+            <a href="https://pn-src.ir" target="_blank">
+              ورود به سایت
+            </a>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <div class="portfolio-title">3. گام اول</div>
+          <div class="status">فعال</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      گام اول تمامی حقوق محفوظ است.
+    </div>
+  </div>
+</body>
+</html>
